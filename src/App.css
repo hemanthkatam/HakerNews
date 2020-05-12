@@ -48,6 +48,7 @@
 .news-main{
   height: 100%;
   border: 9px solid black;
+  border-bottom: none;
 }
 .row-news-odd {
   display: flex;

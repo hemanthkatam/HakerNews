@@ -21,7 +21,7 @@ const AddressDetails = (props) => {
                     </div>
                     <div className="details">
                         <div className="detail-url">
-                            ({url}) by
+                            (<a href={url} target="blank">{url}</a>) by
                         </div>
                         <div className="detail-author">
                             {author}
