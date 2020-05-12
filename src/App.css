@@ -39,7 +39,7 @@
 
 .row-news{
   display: flex;
-  background-color: #e5ebf1;
+  background-color: #f6f8f0;
   margin-left: 8px;
     margin-right: 8px;
     height: 40px;
@@ -52,7 +52,7 @@
 }
 .row-news-odd {
   display: flex;
-  background-color: #ded3d3;
+  background-color: #e6e6e0;
   margin-left: 8px;
     margin-right: 8px;
     height: 40px;
@@ -117,4 +117,8 @@
 }
 .detail-hide{
   padding-left: 5px;
+}
+
+.detail-url a{
+  color: gray;
 }
