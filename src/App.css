@@ -71,6 +71,7 @@
 
 .devider{
   border-top: 5px solid #e45426;
+  margin-top: 42px;
 }
 .vd-devider{
   border-left: 3px solid #e45426;
@@ -82,7 +83,37 @@
 .prev-button{
   color: #e45426;
   padding: 8px;
+  font-weight: 500;
+  font-size: x-small;
 }
 .button-contaner{
   padding: 5px;
+  float: right;
+}
+.news-title{
+  display: flex;
+}
+
+.details{
+  display: flex;
+  padding-left: 5px;
+    font-weight: 500;
+    font-size: x-small;
+    margin-top: 5px;
+    display: flex;
+}
+
+.detail-url{
+  padding-left: 5px;
+  color: gray;
+}
+.detail-author{
+  padding-left: 5px;
+}
+.detail-time{
+  padding-left: 5px;
+  color: gray;
+}
+.detail-hide{
+  padding-left: 5px;
 }
