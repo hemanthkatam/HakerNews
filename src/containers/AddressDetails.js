@@ -1,7 +1,7 @@
 import React from 'react';
 
 const AddressDetails = (props) => {
-    const { comments, points, title, index, url, author, timeDiff } = props;
+    const { comments, points, title, index, url, author, timeDiff, updateUpVote, hideNews } = props;
 
     return (
         <div className={index % 2 === 0 ? "row-news-odd col-12" : "row-news col-12"}>
@@ -12,7 +12,9 @@ const AddressDetails = (props) => {
                 {points}
             </div>
             <div className="upvote col-1">
+                <div className="upvotedetails" onClick={() => updateUpVote(index)}>
 
+                </div>
             </div>
             <div className="news-details col-12">
                 <div className="news-title">
@@ -29,7 +31,7 @@ const AddressDetails = (props) => {
                         <div className="detail-time">
                             {timeDiff} hours ago
                         </div>
-                        <div className="detail-hide">
+                        <div className="detail-hide" onClick={()=>hideNews(index)}>
                             [hide]
                         </div>
                     </div>

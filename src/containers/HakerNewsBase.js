@@ -14,10 +14,30 @@ class HakerNewsBase extends React.Component {
     componentDidMount() {
         axios.get('http://hn.algolia.com/api/v1/search?tags=front_page').then(response => {
             const data = response.data.hits;
-            this.setState({ pagedata: data })
+            const hiddenItems = localStorage.getItem('HideNews') ? localStorage.getItem('HideNews').split(',') : [];
+            let updatedData = data;
+            if(hiddenItems.length >0){
+                updatedData =data.filter((ele,idx)=> hiddenItems.indexOf(ele.objectID.toString()) === -1)
+            }
+            this.setState({ pagedata: updatedData })
             console.log(data)
         })
     }
+    updateUpVote = (index) => {
+        const { pagedata } = this.state;
+        pagedata[index]['points']+=1;
+        this.setState({
+            pagedata
+        })
+    };
+    hideNews = (id) => {
+        let { pagedata } = this.state;
+        const hiddenItems = localStorage.getItem('HideNews') ? localStorage.getItem('HideNews').split(',') : [];
+        hiddenItems.push(pagedata[id].objectID);
+        localStorage.setItem('HideNews',hiddenItems);
+        pagedata.splice(id,1)
+        this.setState({pagedata})
+    };
     render() {
         const { pagedata } = this.state;
         return (
@@ -32,6 +52,8 @@ class HakerNewsBase extends React.Component {
                     url={news.url ? news.url.split('/')[2] : ''}
                     author={news.author}
                     timeDiff={parseInt(Math.abs((new Date().getTime()-new Date(news.created_at).getTime()))/3600000)}
+                    updateUpVote={this.updateUpVote}
+                    hideNews={this.hideNews}
                 />)}
                 <div className="button-contaner d-flex">
                     <div className="prev-button">Previous</div> <div className="vd-devider"></div> <div className="prev-button">Next</div>
