@@ -41,12 +41,12 @@ const ChartContainer = (props) => {
           data={data}
           options={{
             title:{
-              display:true,
-              text:'Average Rainfall per month',
+              display:false,
+              text:'Votes',
               fontSize:20
             },
             legend:{
-              display:true,
+              display:false,
               position:'right'
             }
           }}
